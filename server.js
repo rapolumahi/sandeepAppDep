@@ -22,10 +22,11 @@ let app=express();
 app.use(cors());
 app.use("/upload",express.static("upload"));
 app.use(express.static(path.json(__dirname,"./client/build")));
+
 let connetMD=async()=>{
     try{
 await mongoose.connect(process.env.dbpath)
-console.log("connect database")
+console.log("connect database");
 
     }catch(err){
         console.log("unable connect")
