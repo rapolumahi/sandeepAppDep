@@ -1,4 +1,5 @@
 const express=require("express");
+const path=require("node:path");
 const mongoose=require("mongoose");
 const jwt=require("jsonwebtoken");
 const bcrypt=require("bcrypt");
@@ -18,6 +19,7 @@ const storage = multer.diskStorage({
 let app=express();
 app.use(cors());
 app.use("/upload",express.static("upload"));
+app.use(express.static(path.json(__dirname,"./client/build")));
 let connetMD=async()=>{
     try{
 await mongoose.connect("mongodb+srv://brninfotech2306:sai@cluster0.pifsnv8.mongodb.net/mahi?retryWrites=true&w=majority")
