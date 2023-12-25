@@ -2,6 +2,8 @@ const express=require("express");
 const path=require("node:path");
 const mongoose=require("mongoose");
 const jwt=require("jsonwebtoken");
+const dotenv=require("dotenv");
+dotenv.config();
 const bcrypt=require("bcrypt");
 const cors=require("cors")
 const multer=require("multer");
@@ -22,7 +24,7 @@ app.use("/upload",express.static("upload"));
 app.use(express.static(path.json(__dirname,"./client/build")));
 let connetMD=async()=>{
     try{
-await mongoose.connect("mongodb+srv://brninfotech2306:sai@cluster0.pifsnv8.mongodb.net/mahi?retryWrites=true&w=majority")
+await mongoose.connect(process.env.dbpath)
 console.log("connect database")
 
     }catch(err){
@@ -146,7 +148,7 @@ app.delete("/deleteAccount",upload.none(),async(req,res)=>{
 })
 
 
-app.listen(6565,()=>{
+app.listen(process.env.port,()=>{
     console.log("listening port");
 })
 connetMD();
