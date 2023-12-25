@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+form{
+  display: inline-block;
+  background-color: coral;
+}
+form label{
+  display: inline-block;
+  width: 100px;
+}
+form div{
+  margin: 10px;
+}
+.innerLabel{
+  width: auto;
+  margin: 5px;
+}
+.dummy{
+  width: 200px;
+  height: 200px;
+}
+p{
+  color:aqua;
+  font-size: 1.5rem;
+}
+.homeProfilePic{
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
